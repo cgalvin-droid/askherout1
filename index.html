@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Will You Go Out With Me? ❤️</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
@@ -15,7 +16,8 @@
     <div class="container">
 
         <h1 class="header_text">
-            Do you wanna <br> go out with me?
+            Do you wanna <br>
+            go out with me?
         </h1>
 
         <h2 class="sub_text">
@@ -28,14 +30,15 @@
 
         <div class="buttons">
 
-            <button class="btn yes-btn" onclick="goToYes()">
+            <button class="btn yes-btn" onclick="nextPage()">
                 Yes 💖
             </button>
 
-            <button class="btn no-btn"
-                    id="noButton"
-                    onmouseover="moveButton()"
-                    onclick="moveButton()">
+            <button
+                class="btn no-btn"
+                id="noButton"
+                onmouseover="moveButton()"
+                onclick="moveButton()">
                 No 🏃
             </button>
 
@@ -44,62 +47,45 @@
     </div>
 
     <!-- Background Music -->
-    <audio id="bgMusic" preload="auto" loop>
+    <audio id="bgMusic" autoplay loop>
         <source src="music.mp3" type="audio/mpeg">
-        Your browser does not support audio.
+        Your browser does not support the audio element.
     </audio>
 
     <script>
 
         const music = document.getElementById("bgMusic");
 
-        // Restore previous playback time
-        const savedTime = localStorage.getItem("musicTime");
+        // Try to play music when page loads
+        window.addEventListener("load", () => {
 
-        if (savedTime) {
-            music.currentTime = parseFloat(savedTime);
-        }
+            music.volume = 0.4;
 
-        // Save playback position every half second
-        setInterval(() => {
-            if (!music.paused) {
-                localStorage.setItem("musicTime", music.currentTime);
-            }
-        }, 500);
-
-        function goToYes() {
-
-            localStorage.setItem("musicStarted", "true");
-
-            music.play().then(() => {
-
-                // Give the music a brief moment to start
-                setTimeout(() => {
-                    window.location.href = "yes.html";
-                }, 250);
-
-            }).catch(() => {
-
-                // If playback is blocked, still continue
-                window.location.href = "yes.html";
-
+            music.play().catch(error => {
+                console.log("Autoplay was blocked by the browser.");
             });
 
+        });
+
+        // Go to next page
+        function nextPage() {
+            window.location.href = "yes.html";
         }
 
+        // Move the No button
         function moveButton() {
 
             const button = document.getElementById("noButton");
 
-            const maxX = window.innerWidth - button.offsetWidth - 20;
-            const maxY = window.innerHeight - button.offsetHeight - 20;
+            const maxX = window.innerWidth - button.offsetWidth;
+            const maxY = window.innerHeight - button.offsetHeight;
 
-            const x = Math.random() * maxX;
-            const y = Math.random() * maxY;
+            const randomX = Math.random() * maxX;
+            const randomY = Math.random() * maxY;
 
             button.style.position = "fixed";
-            button.style.left = x + "px";
-            button.style.top = y + "px";
+            button.style.left = randomX + "px";
+            button.style.top = randomY + "px";
 
         }
 
