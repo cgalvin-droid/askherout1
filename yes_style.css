@@ -1,117 +1,129 @@
-/* ---------- GENERAL ---------- */
-
+/* Reset */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* Body */
 body{
+    min-height:100vh;
     background:#FFD1DC;
     font-family:'Nunito',sans-serif;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
 }
 
+/* Jumping GIF */
+.jump-gif{
+    position:fixed;
+    top:30px;
+    left:40px;
+    width:260px;
+    height:auto;
+    z-index:10;
+    pointer-events:none;
+    user-select:none;
+}
+
+/* Main Container */
 .container{
-    width:90%;
+    width:100%;
     max-width:1200px;
     text-align:center;
     padding:40px 20px;
 }
 
-/* ---------- TEXT ---------- */
-
+/* Heading */
 .header_text{
-    font-size:60px;
+    font-size:64px;
     font-weight:900;
-    color:#D63384;
+    color:#d63384;
     margin-bottom:15px;
 }
 
+/* Message */
 .message{
-    font-size:28px;
-    color:#8A3D5D;
+    font-size:30px;
+    color:#8a3d5d;
     margin-bottom:45px;
 }
 
+/* Movie Title */
 .movie_title{
-    font-size:38px;
-    font-weight:700;
-    color:#D63384;
+    font-size:50px;
+    color:#d63384;
     margin-bottom:35px;
 }
 
-/* ---------- MOVIES ---------- */
-
+/* Movie Cards */
 .movie_container{
     display:flex;
     justify-content:center;
-    align-items:stretch;
+    align-items:flex-start;
     gap:30px;
-    flex-wrap:nowrap;
+    flex-wrap:wrap;
 }
 
+/* Individual Card */
 .movie_card{
     background:white;
-    width:230px;
-    border-radius:22px;
-    padding:18px;
-    box-shadow:0 12px 30px rgba(0,0,0,.12);
-
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-
-    transition:.3s;
+    border-radius:25px;
+    padding:15px;
+    width:210px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.3s ease;
 }
 
 .movie_card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-8px) scale(1.03);
 }
 
+/* Poster */
 .movie_card img{
     width:100%;
-    height:340px;
-    object-fit:contain;
-    background:#fff;
-    border-radius:15px;
+    height:320px;
+    object-fit:cover;
+    border-radius:18px;
 }
 
+/* Buttons */
 .movie_card button{
-    margin-top:18px;
+    margin-top:15px;
+    width:100%;
     padding:14px;
     border:none;
     border-radius:14px;
-
-    background:#D63384;
+    background:#d63384;
     color:white;
-
-    font-size:18px;
-    font-family:'Nunito',sans-serif;
+    font-size:22px;
     font-weight:700;
-
     cursor:pointer;
     transition:.3s;
 }
 
 .movie_card button:hover{
-    background:#BC2B74;
+    background:#b91d6b;
     transform:scale(1.03);
 }
 
-/* ---------- MOBILE ---------- */
+/* Responsive */
+@media(max-width:900px){
 
-@media (max-width:900px){
-
-    .movie_container{
-        flex-wrap:wrap;
+    .jump-gif{
+        position:relative;
+        display:block;
+        margin:0 auto 20px;
+        width:180px;
+        left:auto;
+        top:auto;
     }
 
     .header_text{
-        font-size:48px;
+        font-size:46px;
     }
 
     .message{
@@ -119,15 +131,23 @@ body{
     }
 
     .movie_title{
-        font-size:28px;
+        font-size:32px;
+    }
+
+    .movie_container{
+        gap:20px;
     }
 
     .movie_card{
-        width:200px;
+        width:180px;
     }
 
     .movie_card img{
-        height:300px;
+        height:270px;
+    }
+
+    .movie_card button{
+        font-size:18px;
     }
 
 }
