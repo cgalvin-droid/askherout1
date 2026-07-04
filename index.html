@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Do You Wanna Go Out With Me? ❤️</title>
+    <title>Will You Go Out With Me? ❤️</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -12,91 +12,99 @@
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="header_text">
-        Do you wanna<br>go out with me?
-    </h1>
+        <h1 class="header_text">
+            Do you wanna <br> go out with me?
+        </h1>
 
-    <h2 class="sub_text">
-        Are you free tomorrow? 🌸
-    </h2>
+        <h2 class="sub_text">
+            Are you free tomorrow? 🌸
+        </h2>
 
-    <div class="gif_container">
-        <img src="cute.gif" alt="Cute">
+        <div class="gif_container">
+            <img src="Cute.gif" alt="Cute Chibi">
+        </div>
+
+        <div class="buttons">
+
+            <button class="btn yes-btn" onclick="goToYes()">
+                Yes 💖
+            </button>
+
+            <button class="btn no-btn"
+                    id="noButton"
+                    onmouseover="moveButton()"
+                    onclick="moveButton()">
+                No 🏃
+            </button>
+
+        </div>
+
     </div>
 
-    <div class="buttons">
-        <button class="btn yes-btn" onclick="goToYes()">
-            Yes 💖
-        </button>
+    <!-- Background Music -->
+    <audio id="bgMusic" preload="auto" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
 
-        <button class="btn no-btn" id="noButton"
-            onmouseover="moveButton()"
-            onclick="moveButton()">
-            No 🏃
-        </button>
-    </div>
+    <script>
 
-</div>
+        const music = document.getElementById("bgMusic");
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+        // Restore previous playback time
+        const savedTime = localStorage.getItem("musicTime");
 
-<script>
+        if (savedTime) {
+            music.currentTime = parseFloat(savedTime);
+        }
 
-const music = document.getElementById("bgMusic");
+        // Save playback position every half second
+        setInterval(() => {
+            if (!music.paused) {
+                localStorage.setItem("musicTime", music.currentTime);
+            }
+        }, 500);
 
-// Resume if music already started
-if(localStorage.getItem("musicStarted") === "true"){
+        function goToYes() {
 
-    const savedTime = localStorage.getItem("musicTime");
+            localStorage.setItem("musicStarted", "true");
 
-    if(savedTime){
-        music.currentTime = parseFloat(savedTime);
-    }
+            music.play().then(() => {
 
-    music.play().catch(()=>{});
-}
+                // Give the music a brief moment to start
+                setTimeout(() => {
+                    window.location.href = "yes.html";
+                }, 250);
 
-// Save playback time
-setInterval(()=>{
-    if(!music.paused){
-        localStorage.setItem("musicTime", music.currentTime);
-    }
-},500);
+            }).catch(() => {
 
-// YES button
-function goToYes(){
+                // If playback is blocked, still continue
+                window.location.href = "yes.html";
 
-    localStorage.setItem("musicStarted","true");
+            });
 
-    music.play().then(()=>{
-        window.location.href="yes.html";
-    }).catch(()=>{
-        window.location.href="yes.html";
-    });
+        }
 
-}
+        function moveButton() {
 
-// NO button
-function moveButton(){
+            const button = document.getElementById("noButton");
 
-    const button=document.getElementById("noButton");
+            const maxX = window.innerWidth - button.offsetWidth - 20;
+            const maxY = window.innerHeight - button.offsetHeight - 20;
 
-    const x=Math.random()*(window.innerWidth-button.offsetWidth);
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
 
-    const y=Math.random()*(window.innerHeight-button.offsetHeight);
+            button.style.position = "fixed";
+            button.style.left = x + "px";
+            button.style.top = y + "px";
 
-    button.style.position="fixed";
-    button.style.left=x+"px";
-    button.style.top=y+"px";
+        }
 
-}
-
-</script>
+    </script>
 
 </body>
+
 </html>
