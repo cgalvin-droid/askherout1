@@ -1,38 +1,5 @@
-body{
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    background:#FFD1DC;
-    font-family:'Nunito',sans-serif;
-}
-
-.container{
-    text-align:center;
-    padding:30px;
-}
-
-.header_text{
-    font-size:56px;
-    color:#D63384;
-    margin-bottom:10px;
-}
-
-.message{
-    font-size:24px;
-    color:#8a3d5d;
-    margin-bottom:30px;
-}
-
-.gif_container img{
-    width:250px;
-    border-radius:20px;
-    margin-bottom:30px;
-}
-
 .movie_title{
-    font-size:30px;
+    font-size:28px;
     color:#D63384;
     margin-bottom:25px;
 }
@@ -41,37 +8,40 @@ body{
     display:flex;
     justify-content:center;
     align-items:flex-start;
-    gap:30px;
-    flex-wrap:wrap;
+    gap:20px;
+    flex-wrap:nowrap; /* Keep all movies on one row */
+    margin:20px auto;
 }
 
 .movie_card{
     background:#fff;
-    padding:15px;
-    width:220px;
-    border-radius:20px;
+    width:170px; /* Smaller card */
+    padding:12px;
+    border-radius:18px;
     box-shadow:0 8px 20px rgba(0,0,0,0.15);
     transition:0.3s;
 }
 
 .movie_card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-8px) scale(1.03);
 }
 
 .movie_card img{
     width:100%;
-    border-radius:15px;
+    height:250px;
+    object-fit:cover;
+    border-radius:12px;
 }
 
 .movie_card button{
     width:100%;
-    margin-top:15px;
-    padding:12px;
+    margin-top:12px;
+    padding:10px;
     border:none;
-    border-radius:12px;
+    border-radius:10px;
     background:#D63384;
-    color:#fff;
-    font-size:16px;
+    color:white;
+    font-size:15px;
     font-family:'Nunito',sans-serif;
     cursor:pointer;
     transition:0.3s;
@@ -79,27 +49,4 @@ body{
 
 .movie_card button:hover{
     background:#b7286b;
-}
-
-@media (max-width:768px){
-
-    .header_text{
-        font-size:42px;
-    }
-
-    .message{
-        font-size:20px;
-    }
-
-    .movie_title{
-        font-size:24px;
-    }
-
-    .movie_card{
-        width:180px;
-    }
-
-    .movie_card img{
-        width:100%;
-    }
 }
