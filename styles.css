@@ -1,0 +1,5 @@
+body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;background:#FFD1DC;font-family:Nunito,sans-serif}
+.container{text-align:center}.header_text{font-size:52px;color:#D63384}.sub_text{color:#8a3d5d}
+.gif_container img{width:280px;border-radius:20px}
+.buttons{margin-top:25px}.btn{padding:14px 30px;border:none;border-radius:14px;margin:10px;font-size:18px;cursor:pointer}
+.yes-btn{background:#D63384;color:#fff}.no-btn{background:#fff;color:#D63384}
