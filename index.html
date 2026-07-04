@@ -1,30 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Question For You</title>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Wanna Go Out With Me? ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
 <div class="container">
-<h1 class="header_text">Do you wanna<br>go out with me?</h1>
-<h2 class="sub_text">Are you free tomorrow? 🌸</h2>
-<div class="gif_container"><img src="cute.gif" alt="cute"></div>
-<div class="buttons">
-<button class="btn yes-btn" onclick="window.location='yes.html'">Yes 💖</button>
-<button class="btn no-btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No 🏃</button>
+
+    <h1 class="header_text">
+        Do you wanna<br>go out with me?
+    </h1>
+
+    <h2 class="sub_text">
+        Are you free tomorrow? 🌸
+    </h2>
+
+    <div class="gif_container">
+        <img src="cute.gif" alt="Cute">
+    </div>
+
+    <div class="buttons">
+        <button class="btn yes-btn" onclick="goToYes()">
+            Yes 💖
+        </button>
+
+        <button class="btn no-btn" id="noButton"
+            onmouseover="moveButton()"
+            onclick="moveButton()">
+            No 🏃
+        </button>
+    </div>
+
 </div>
-</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <script>
-function moveButton(){
-const b=document.getElementById("noButton");
-const x=Math.random()*(window.innerWidth-b.offsetWidth);
-const y=Math.random()*(window.innerHeight-b.offsetHeight);
-b.style.position="fixed";
-b.style.left=x+"px";
-b.style.top=y+"px";
+
+const music = document.getElementById("bgMusic");
+
+// Resume if music already started
+if(localStorage.getItem("musicStarted") === "true"){
+
+    const savedTime = localStorage.getItem("musicTime");
+
+    if(savedTime){
+        music.currentTime = parseFloat(savedTime);
+    }
+
+    music.play().catch(()=>{});
 }
+
+// Save playback time
+setInterval(()=>{
+    if(!music.paused){
+        localStorage.setItem("musicTime", music.currentTime);
+    }
+},500);
+
+// YES button
+function goToYes(){
+
+    localStorage.setItem("musicStarted","true");
+
+    music.play().then(()=>{
+        window.location.href="yes.html";
+    }).catch(()=>{
+        window.location.href="yes.html";
+    });
+
+}
+
+// NO button
+function moveButton(){
+
+    const button=document.getElementById("noButton");
+
+    const x=Math.random()*(window.innerWidth-button.offsetWidth);
+
+    const y=Math.random()*(window.innerHeight-button.offsetHeight);
+
+    button.style.position="fixed";
+    button.style.left=x+"px";
+    button.style.top=y+"px";
+
+}
+
 </script>
-</body></html>
+
+</body>
+</html>
