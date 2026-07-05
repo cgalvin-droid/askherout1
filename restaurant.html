@@ -13,92 +13,106 @@
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="header_text">
-        Yay!! One more choice 💕
-    </h1>
+        <h1 class="header_text">
+            Yay!! One more choice 💕
+        </h1>
 
-    <p class="message">
-        Now let's decide where we'll have dinner after the movie! 🍽️🥰
-    </p>
+        <p class="message">
+            Now let's decide where we'll have dinner after the movie! 🍽️🥰
+        </p>
 
-    <!-- Cute Eating GIF -->
-    <div class="gif_container">
-        <img src="eating.gif" alt="Cute Dinner Date" class="eating_gif">
-    </div>
-
-    <h2 class="restaurant_title">
-        Which restaurant would you like? ❤️
-    </h2>
-
-    <div class="restaurant_container">
-
-        <!-- Rossini -->
-        <div class="restaurant_card">
-
-            <img src="rossini.jpeg" alt="Rossini">
-
-            <button onclick="alert('Excellent choice! ❤️ Italian dinner at Rossini it is! 🇮🇹🍝')">
-                Rossini 🍝
-            </button>
-
+        <!-- Cute Eating GIF -->
+        <div class="gif_container">
+            <img src="eating.gif" alt="Cute Dinner Date" class="eating_gif">
         </div>
 
-        <!-- Wildflour -->
-        <div class="restaurant_card">
+        <h2 class="restaurant_title">
+            Which restaurant would you like? ❤️
+        </h2>
 
-            <img src="wildflour.jpeg" alt="Wildflour">
+        <div class="restaurant_container">
 
-            <button onclick="alert('Yay! Wildflour sounds perfect! 🥩❤️')">
-                Wildflour 🥩
-            </button>
+            <!-- Rossini -->
+            <div class="restaurant_card">
+                <img src="rossini.jpeg" alt="Rossini">
 
-        </div>
+                <button onclick="chooseRestaurant('Rossini')">
+                    🍝 Rossini
+                </button>
+            </div>
 
-        <!-- Manam -->
-        <div class="restaurant_card">
+            <!-- Wildflour -->
+            <div class="restaurant_card">
+                <img src="wildflour.jpeg" alt="Wildflour">
 
-            <img src="manam.jpeg" alt="Manam">
+                <button onclick="chooseRestaurant('Wildflour')">
+                    🥩 Wildflour
+                </button>
+            </div>
 
-            <button onclick="alert('Yummy! Filipino feast at Manam! 🇵🇭🍛❤️')">
-                Manam 🍛
-            </button>
+            <!-- Manam -->
+            <div class="restaurant_card">
+                <img src="manam.jpeg" alt="Manam">
+
+                <button onclick="chooseRestaurant('Manam')">
+                    🍛 Manam
+                </button>
+            </div>
 
         </div>
 
     </div>
 
-</div>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <script>
 
-<script>
-const music = document.getElementById("bgMusic");
+        // ==========================
+        // Background Music
+        // ==========================
 
-if(localStorage.getItem("musicStarted")==="true"){
+        const music = document.getElementById("bgMusic");
 
-    const savedTime = localStorage.getItem("musicTime");
+        if (localStorage.getItem("musicStarted") === "true") {
 
-    if(savedTime){
-        music.currentTime = parseFloat(savedTime);
-    }
+            const savedTime = localStorage.getItem("musicTime");
 
-    music.play().catch(()=>{});
+            if (savedTime) {
+                music.currentTime = parseFloat(savedTime);
+            }
 
-}
+            music.play().catch(() => {});
 
-setInterval(()=>{
+        }
 
-    if(!music.paused){
-        localStorage.setItem("musicTime",music.currentTime);
-    }
+        setInterval(() => {
 
-},500);
-</script>
+            if (!music.paused) {
+                localStorage.setItem("musicTime", music.currentTime);
+            }
+
+        }, 500);
+
+        // ==========================
+        // Restaurant Selection
+        // ==========================
+
+        function chooseRestaurant(restaurant) {
+
+            // Save restaurant (optional, for future use)
+            localStorage.setItem("selectedRestaurant", restaurant);
+
+            // Go to the final page
+            window.location.href = "final.html";
+        }
+
+    </script>
 
 </body>
+
 </html>
