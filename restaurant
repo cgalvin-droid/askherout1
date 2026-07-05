@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dinner Date ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="restaurant_style.css">
+
+</head>
+
+<body>
+
+<!-- Jumping Chibi -->
+<img src="Jump.gif" class="jump-gif" alt="Jumping Chibi">
+
+<div class="container">
+
+    <h1 class="header_text">
+        Yay!! One more choice 💕
+    </h1>
+
+    <p class="message">
+        Now let's decide where we'll have dinner after the movie! 🍽️🥰
+    </p>
+
+    <h2 class="restaurant_title">
+        Which restaurant would you like? ❤️
+    </h2>
+
+    <div class="restaurant_container">
+
+        <!-- Rossini -->
+        <div class="restaurant_card">
+
+            <img src="rossini.jpg" alt="Rossini">
+
+            <button onclick="alert('Excellent choice! ❤️ Italian dinner at Rossini it is! 🇮🇹🍝')">
+                Rossini 🍝
+            </button>
+
+        </div>
+
+        <!-- Wildflour -->
+        <div class="restaurant_card">
+
+            <img src="wildflour.jpg" alt="Wildflour">
+
+            <button onclick="alert('Yay! Wildflour sounds perfect! 🥐❤️')">
+                Wildflour 🥩
+            </button>
+
+        </div>
+
+        <!-- Manam -->
+        <div class="restaurant_card">
+
+            <img src="manam.jpg" alt="Manam">
+
+            <button onclick="alert('Yummy! Filipino feast at Manam! 🇵🇭❤️')">
+                Manam 🍛
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const music = document.getElementById("bgMusic");
+
+if(localStorage.getItem("musicStarted")==="true"){
+
+    const savedTime = localStorage.getItem("musicTime");
+
+    if(savedTime){
+        music.currentTime = parseFloat(savedTime);
+    }
+
+    music.play().catch(()=>{});
+
+}
+
+setInterval(()=>{
+
+    if(!music.paused){
+        localStorage.setItem("musicTime",music.currentTime);
+    }
+
+},500);
+
+</script>
+
+</body>
+</html>
