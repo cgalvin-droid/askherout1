@@ -1,11 +1,15 @@
-/* Reset */
+/* ===========================
+   RESET
+=========================== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-/* Body */
+/* ===========================
+   BODY
+=========================== */
 body{
     min-height:100vh;
     display:flex;
@@ -16,90 +20,109 @@ body{
     overflow:hidden;
 }
 
-/* Main Container */
+/* ===========================
+   CONTAINER
+=========================== */
 .container{
     text-align:center;
-    padding:20px;
+    max-width:900px;
+    width:90%;
     animation:fadeIn 0.8s ease;
 }
 
-/* Greeting */
+/* ===========================
+   GREETING
+=========================== */
 .greeting{
-    font-size:4rem;
-    font-weight:900;
-    color:#ff2e83;
-    margin-bottom:15px;
-    text-shadow:2px 2px 10px rgba(255,255,255,0.8);
-    animation:popIn .8s ease;
+    font-family:'Fredoka',sans-serif;
+    font-size:6rem;
+    font-weight:700;
+    color:#D62D84;
+    line-height:1;
+    margin-bottom:18px;
+    text-shadow:
+        0 4px 0 rgba(255,255,255,.45),
+        0 10px 20px rgba(214,45,132,.25);
+    animation:bounceIn .8s ease;
 }
 
-/* Main Title */
+/* ===========================
+   QUESTION
+=========================== */
 .header_text{
+    font-family:'Fredoka',sans-serif;
     font-size:3.5rem;
-    font-weight:900;
+    font-weight:600;
     color:#D63384;
     line-height:1.2;
-    margin-bottom:15px;
+    margin-bottom:12px;
 }
 
-/* Subtitle */
+/* ===========================
+   SUBTITLE
+=========================== */
 .sub_text{
     font-size:1.4rem;
-    color:#8a3d5d;
-    margin-bottom:25px;
     font-weight:600;
+    color:#8a3d5d;
+    margin-bottom:28px;
 }
 
-/* GIF */
+/* ===========================
+   GIF
+=========================== */
 .gif_container img{
     width:300px;
-    border-radius:20px;
-    box-shadow:0 8px 20px rgba(0,0,0,.15);
-    transition:.3s;
+    border-radius:22px;
+    transition:.3s ease;
 }
 
 .gif_container img:hover{
     transform:scale(1.05);
 }
 
-/* Buttons */
+/* ===========================
+   BUTTONS
+=========================== */
 .buttons{
     margin-top:30px;
 }
 
 .btn{
-    padding:14px 35px;
+    padding:15px 36px;
     border:none;
-    border-radius:14px;
-    margin:10px;
+    border-radius:16px;
     font-size:18px;
     font-weight:700;
     cursor:pointer;
     transition:.25s ease;
+    font-family:'Nunito',sans-serif;
 }
 
 .yes-btn{
     background:#D63384;
-    color:#fff;
-    box-shadow:0 5px 15px rgba(214,51,132,.35);
+    color:white;
+    box-shadow:0 8px 20px rgba(214,51,132,.35);
 }
 
 .yes-btn:hover{
-    background:#c2186b;
-    transform:translateY(-3px) scale(1.05);
+    background:#C71E76;
+    transform:translateY(-3px) scale(1.08);
 }
 
 .no-btn{
-    background:#fff;
+    background:white;
     color:#D63384;
-    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
 .no-btn:hover{
-    transform:scale(1.05);
+    transform:scale(1.08);
 }
 
-/* Animations */
+/* ===========================
+   ANIMATIONS
+=========================== */
 @keyframes fadeIn{
     from{
         opacity:0;
@@ -111,13 +134,13 @@ body{
     }
 }
 
-@keyframes popIn{
+@keyframes bounceIn{
     0%{
         opacity:0;
         transform:scale(.5);
     }
-    70%{
-        transform:scale(1.1);
+    60%{
+        transform:scale(1.08);
     }
     100%{
         opacity:1;
@@ -125,15 +148,17 @@ body{
     }
 }
 
-/* Mobile */
+/* ===========================
+   MOBILE
+=========================== */
 @media (max-width:768px){
 
     .greeting{
-        font-size:2.8rem;
+        font-size:3.8rem;
     }
 
     .header_text{
-        font-size:2.4rem;
+        font-size:2.3rem;
     }
 
     .sub_text{
@@ -141,11 +166,11 @@ body{
     }
 
     .gif_container img{
-        width:240px;
+        width:230px;
     }
 
     .btn{
+        padding:13px 28px;
         font-size:16px;
-        padding:12px 28px;
     }
 }
