@@ -21,20 +21,7 @@ body{
     position:relative;
 }
 
-/* ===========================
-   JUMPING CHIBI
-=========================== */
-.jump-gif{
-    position:absolute;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    width:240px;
-    height:auto;
-    z-index:10;
-    pointer-events:none;
-    user-select:none;
-}
+
 
 /* ===========================
    MAIN CONTAINER
