@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See You Tomorrow ❤️</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #FFD1DC;
+            font-family: 'Nunito', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            max-width: 700px;
+        }
+
+        .cute-gif {
+            width: 320px;
+            max-width: 90%;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            color: #d63384;
+            margin-bottom: 15px;
+        }
+
+        .movie {
+            font-size: 1.8rem;
+            color: #8a3d5d;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: #6d214f;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .heart {
+            font-size: 3rem;
+            animation: pulse 1.2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+
+        .floating-heart {
+            position: fixed;
+            font-size: 24px;
+            animation: floatUp 6s linear infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <img src="hug.gif" alt="Cute Hug" class="cute-gif">
+
+        <h1>Yayyyy! ❤️</h1>
+
+        <div class="movie">
+            Our movie: <span id="selectedMovie">A surprise! 🍿</span>
+        </div>
+
+        <div class="message">
+            Thank you for saying yes to our date. 🥰<br><br>
+
+            I can't wait to spend time with you, watch our movie,
+            share food, laugh together, and make cute memories. ✨<br><br>
+
+            See you tomorrow, pretty. 💖
+        </div>
+
+        <div class="heart">💗</div>
+
+    </div>
+
+    <script>
+        const movie = localStorage.getItem("selectedMovie");
+
+        if (movie) {
+            document.getElementById("selectedMovie").textContent = movie;
+        }
+
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("floating-heart");
+            heart.innerHTML = ["💖", "💕", "💗", "💞"][Math.floor(Math.random() * 4)];
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 500);
+    </script>
+
+</body>
+
+</html>
