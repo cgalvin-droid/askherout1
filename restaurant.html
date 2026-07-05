@@ -2,20 +2,16 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinner Date ❤️</title>
 
-<title>Dinner Date ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="restaurant_style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="restaurant_style.css">
 </head>
 
 <body>
-
-
 
 <div class="container">
 
@@ -27,6 +23,11 @@
         Now let's decide where we'll have dinner after the movie! 🍽️🥰
     </p>
 
+    <!-- Cute Eating GIF -->
+    <div class="gif_container">
+        <img src="eating.gif" alt="Cute Dinner Date" class="eating_gif">
+    </div>
+
     <h2 class="restaurant_title">
         Which restaurant would you like? ❤️
     </h2>
@@ -36,7 +37,7 @@
         <!-- Rossini -->
         <div class="restaurant_card">
 
-            <img src="rossini.jpeg" alt="rossini">
+            <img src="rossini.jpeg" alt="Rossini">
 
             <button onclick="alert('Excellent choice! ❤️ Italian dinner at Rossini it is! 🇮🇹🍝')">
                 Rossini 🍝
@@ -47,20 +48,20 @@
         <!-- Wildflour -->
         <div class="restaurant_card">
 
-            <img src="wildflour.jpeg" alt="wildflour">
+            <img src="wildflour.jpeg" alt="Wildflour">
 
-            <button onclick="alert('Yay! Wildflour sounds perfect! 🥐❤️')">
+            <button onclick="alert('Yay! Wildflour sounds perfect! 🥩❤️')">
                 Wildflour 🥩
             </button>
 
         </div>
 
-        <!-- manam -->
+        <!-- Manam -->
         <div class="restaurant_card">
 
-            <img src="manam.jpeg" alt="manam">
+            <img src="manam.jpeg" alt="Manam">
 
-            <button onclick="alert('Yummy! Filipino feast at Manam! 🇵🇭❤️')">
+            <button onclick="alert('Yummy! Filipino feast at Manam! 🇵🇭🍛❤️')">
                 Manam 🍛
             </button>
 
@@ -76,7 +77,6 @@
 </audio>
 
 <script>
-
 const music = document.getElementById("bgMusic");
 
 if(localStorage.getItem("musicStarted")==="true"){
@@ -98,7 +98,6 @@ setInterval(()=>{
     }
 
 },500);
-
 </script>
 
 </body>
