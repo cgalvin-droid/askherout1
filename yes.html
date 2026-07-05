@@ -12,8 +12,17 @@
 
 <body>
 
-    <!-- Jumping Chibi -->
-    <img src="Jump.gif" alt="Happy Jump" class="jump-gif">
+    <!-- Floating Jumping Chibis -->
+    <div class="jump-decor">
+
+        <img src="Jump.gif" alt="" class="jump jump1">
+        <img src="Jump.gif" alt="" class="jump jump2">
+        <img src="Jump.gif" alt="" class="jump jump3">
+        <img src="Jump.gif" alt="" class="jump jump4">
+        <img src="Jump.gif" alt="" class="jump jump5">
+        <img src="Jump.gif" alt="" class="jump jump6">
+
+    </div>
 
     <div class="container">
 
@@ -33,29 +42,35 @@
 
             <!-- Toy Story -->
             <div class="movie_card">
+
                 <img src="toy story.jpg" alt="Toy Story 5">
 
                 <button onclick="chooseMovie('Toy Story 5')">
                     🍿 Toy Story 5
                 </button>
+
             </div>
 
             <!-- Supergirl -->
             <div class="movie_card">
+
                 <img src="supergirl1.jpg" alt="Supergirl">
 
                 <button onclick="chooseMovie('Supergirl')">
                     🦸 Supergirl
                 </button>
+
             </div>
 
             <!-- Minions -->
             <div class="movie_card">
+
                 <img src="minions1.jpg" alt="Minions & Monsters">
 
                 <button onclick="chooseMovie('Minions & Monsters')">
                     🍌 Minions & Monsters
                 </button>
+
             </div>
 
         </div>
@@ -75,35 +90,35 @@
 
         const music = document.getElementById("bgMusic");
 
-        if (localStorage.getItem("musicStarted") === "true") {
+        if(localStorage.getItem("musicStarted")==="true"){
 
             const savedTime = localStorage.getItem("musicTime");
 
-            if (savedTime) {
+            if(savedTime){
                 music.currentTime = parseFloat(savedTime);
             }
 
-            music.play().catch(() => {});
+            music.play().catch(()=>{});
 
         }
 
-        setInterval(() => {
-            if (!music.paused) {
-                localStorage.setItem("musicTime", music.currentTime);
+        setInterval(()=>{
+
+            if(!music.paused){
+                localStorage.setItem("musicTime",music.currentTime);
             }
-        }, 500);
+
+        },500);
 
         // ----------------------------
         // Movie Selection
         // ----------------------------
 
-        function chooseMovie(movie) {
+        function chooseMovie(movie){
 
-            // Save the selected movie
-            localStorage.setItem("selectedMovie", movie);
+            localStorage.setItem("selectedMovie",movie);
 
-            // Go to the restaurant page
-            window.location.href = "restaurant.html";
+            window.location.href="restaurant.html";
 
         }
 
