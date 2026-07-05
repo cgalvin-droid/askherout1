@@ -1,0 +1,183 @@
+/* ===========================
+   RESET
+=========================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* ===========================
+   BODY
+=========================== */
+body{
+    min-height:100vh;
+    background:#FFD1DC;
+    font-family:'Nunito',sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* ===========================
+   JUMPING CHIBI
+=========================== */
+.jump-gif{
+    position:absolute;
+    top:20px;
+    left:50%;
+    transform:translateX(-50%);
+    width:240px;
+    height:auto;
+    z-index:10;
+    pointer-events:none;
+    user-select:none;
+}
+
+/* ===========================
+   MAIN CONTAINER
+=========================== */
+.container{
+    width:100%;
+    max-width:1200px;
+    text-align:center;
+    padding:270px 20px 50px;
+}
+
+/* ===========================
+   HEADER
+=========================== */
+.header_text{
+    font-size:64px;
+    font-weight:900;
+    color:#d63384;
+    margin-bottom:20px;
+}
+
+.message{
+    font-size:28px;
+    color:#8a3d5d;
+    margin-bottom:40px;
+    line-height:1.5;
+}
+
+.restaurant_title{
+    font-size:48px;
+    color:#d63384;
+    margin-bottom:40px;
+}
+
+/* ===========================
+   RESTAURANT CARDS
+=========================== */
+.restaurant_container{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.restaurant_card{
+    width:240px;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:0.3s ease;
+}
+
+.restaurant_card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
+
+.restaurant_card img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+}
+
+.restaurant_card button{
+    width:100%;
+    padding:16px;
+    border:none;
+    background:#d63384;
+    color:white;
+    font-size:22px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.restaurant_card button:hover{
+    background:#b91d6b;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (max-width:900px){
+
+    .jump-gif{
+        width:180px;
+        top:15px;
+    }
+
+    .container{
+        padding-top:210px;
+    }
+
+    .header_text{
+        font-size:42px;
+    }
+
+    .message{
+        font-size:22px;
+    }
+
+    .restaurant_title{
+        font-size:34px;
+    }
+
+    .restaurant_container{
+        gap:20px;
+    }
+
+    .restaurant_card{
+        width:190px;
+    }
+
+    .restaurant_card img{
+        height:260px;
+    }
+
+    .restaurant_card button{
+        font-size:18px;
+    }
+}
+
+@media (max-width:600px){
+
+    .header_text{
+        font-size:34px;
+    }
+
+    .message{
+        font-size:18px;
+    }
+
+    .restaurant_title{
+        font-size:28px;
+    }
+
+    .restaurant_card{
+        width:90%;
+        max-width:300px;
+    }
+
+    .restaurant_card img{
+        height:300px;
+    }
+}
