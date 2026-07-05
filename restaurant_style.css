@@ -107,10 +107,7 @@ body{
 =========================== */
 @media (max-width:900px){
 
-    .jump-gif{
-        width:180px;
-        top:15px;
-    }
+  
 
     .container{
         padding-top:210px;
