@@ -12,9 +12,6 @@
 
 <body>
 
-    <!-- Jumping Chibi -->
-    <img src="Jump.gif" alt="Happy Jump" class="jump-gif">
-
     <div class="container">
 
         <h1 class="header_text">
@@ -29,11 +26,15 @@
             Which movie should we watch together? 🍿❤️
         </h2>
 
+        <!-- Jumping Chibi -->
+        <img src="Jump.gif" alt="Happy Jump" class="jump-gif">
+
         <div class="movie_container">
 
             <!-- Toy Story -->
             <div class="movie_card">
                 <img src="toy story.jpg" alt="Toy Story 5">
+
                 <button onclick="chooseMovie('Toy Story 5')">
                     🍿 Toy Story 5
                 </button>
@@ -42,6 +43,7 @@
             <!-- Supergirl -->
             <div class="movie_card">
                 <img src="supergirl1.jpg" alt="Supergirl">
+
                 <button onclick="chooseMovie('Supergirl')">
                     🦸 Supergirl
                 </button>
@@ -50,6 +52,7 @@
             <!-- Minions -->
             <div class="movie_card">
                 <img src="minions1.jpg" alt="Minions & Monsters">
+
                 <button onclick="chooseMovie('Minions & Monsters')">
                     🍌 Minions & Monsters
                 </button>
@@ -65,10 +68,6 @@
     </audio>
 
     <script>
-        // ----------------------------
-        // Background Music
-        // ----------------------------
-
         const music = document.getElementById("bgMusic");
 
         if (localStorage.getItem("musicStarted") === "true") {
@@ -78,7 +77,7 @@
                 music.currentTime = parseFloat(savedTime);
             }
 
-            music.play().catch(() => {});
+            music.play().catch(() => { });
         }
 
         setInterval(() => {
@@ -87,15 +86,8 @@
             }
         }, 500);
 
-        // ----------------------------
-        // Movie Selection
-        // ----------------------------
-
         function chooseMovie(movie) {
-            // Save the selected movie
             localStorage.setItem("selectedMovie", movie);
-
-            // Go to the restaurant page
             window.location.href = "restaurant.html";
         }
     </script>
