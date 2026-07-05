@@ -4,100 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Our Movie Date 🎬</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="yes_style.css">
-
 </head>
 
 <body>
 
-<!-- Jumping Chibi -->
-<img src="Jump.gif" alt="Happy Jump" class="jump-gif">
+    <!-- Jumping Chibi -->
+    <img src="Jump.gif" alt="Happy Jump" class="jump-gif">
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="header_text">
-        Hurrayyyy!! ❤️
-    </h1>
+        <h1 class="header_text">
+            Hurrayyyy!! ❤️
+        </h1>
 
-    <p class="message">
-        I can't wait to see you tomorrow! 🥰
-    </p>
+        <p class="message">
+            I can't wait to see you tomorrow! 🥰
+        </p>
 
-    <h2 class="movie_title">
-        Please choose a movie you'd like to watch with me 🍿❤️
-    </h2>
+        <h2 class="movie_title">
+            Which movie should we watch together? 🍿❤️
+        </h2>
 
-    <div class="movie_container">
+        <div class="movie_container">
 
-        <div class="movie_card">
+            <!-- Toy Story -->
+            <div class="movie_card">
+                <img src="toy story.jpg" alt="Toy Story 5">
 
-            <img src="toy story.jpg" alt="Toy Story 5">
+                <button onclick="chooseMovie('Toy Story 5')">
+                    🍿 Toy Story 5
+                </button>
+            </div>
 
-            <button onclick="alert('Yay! Toy Story 5 it is! 🧸❤️')">
-                Toy Story 5
-            </button>
+            <!-- Supergirl -->
+            <div class="movie_card">
+                <img src="supergirl1.jpg" alt="Supergirl">
 
-        </div>
+                <button onclick="chooseMovie('Supergirl')">
+                    🦸 Supergirl
+                </button>
+            </div>
 
-        <div class="movie_card">
+            <!-- Minions -->
+            <div class="movie_card">
+                <img src="minions1.jpg" alt="Minions & Monsters">
 
-            <img src="supergirl1.jpg" alt="Supergirl">
-
-            <button onclick="alert('Awesome! Supergirl! 🦸‍♀️❤️')">
-                Supergirl
-            </button>
-
-        </div>
-
-        <div class="movie_card">
-
-            <img src="minions1.jpg" alt="Minions">
-
-            <button onclick="alert('Banana! 🍌 Minions & Monsters it is! 💛')">
-                Minions & Monsters
-            </button>
+                <button onclick="chooseMovie('Minions & Monsters')">
+                    🍌 Minions & Monsters
+                </button>
+            </div>
 
         </div>
 
     </div>
 
-</div>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
-<!-- Background Music -->
-<audio id="bgMusic" loop>
-    <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <script>
 
-<script>
+        // ----------------------------
+        // Background Music
+        // ----------------------------
 
-const music=document.getElementById("bgMusic");
+        const music = document.getElementById("bgMusic");
 
-// Continue music
-if(localStorage.getItem("musicStarted")==="true"){
+        if (localStorage.getItem("musicStarted") === "true") {
 
-    const savedTime=localStorage.getItem("musicTime");
+            const savedTime = localStorage.getItem("musicTime");
 
-    if(savedTime){
-        music.currentTime=parseFloat(savedTime);
-    }
+            if (savedTime) {
+                music.currentTime = parseFloat(savedTime);
+            }
 
-    music.play().catch(()=>{});
+            music.play().catch(() => {});
 
-}
+        }
 
-// Save music position
-setInterval(()=>{
-    if(!music.paused){
-        localStorage.setItem("musicTime",music.currentTime);
-    }
-},500);
+        setInterval(() => {
+            if (!music.paused) {
+                localStorage.setItem("musicTime", music.currentTime);
+            }
+        }, 500);
 
-</script>
+        // ----------------------------
+        // Movie Selection
+        // ----------------------------
+
+        function chooseMovie(movie) {
+
+            // Save the selected movie
+            localStorage.setItem("selectedMovie", movie);
+
+            // Go to the restaurant page
+            window.location.href = "restaurant.html";
+
+        }
+
+    </script>
 
 </body>
+
 </html>
