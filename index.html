@@ -15,19 +15,28 @@
 
     <div class="container">
 
+        <!-- Greeting -->
+        <h1 class="greeting">
+            Hi Allexah! 💖
+        </h1>
+
+        <!-- Main Question -->
         <h1 class="header_text">
             Do you wanna <br>
             go out with me?
         </h1>
 
+        <!-- Subtitle -->
         <h2 class="sub_text">
-            Are you free tomorrow?🌸
+            Are you free tomorrow? 🌸
         </h2>
 
+        <!-- GIF -->
         <div class="gif_container">
-            <img src="cute.gif" alt="cute">
+            <img src="cute.gif" alt="Cute GIF">
         </div>
 
+        <!-- Buttons -->
         <div class="buttons">
 
             <button class="btn yes-btn" onclick="nextPage()">
@@ -56,7 +65,7 @@
 
         const music = document.getElementById("bgMusic");
 
-        // Try to play music when page loads
+        // Try to play music
         window.addEventListener("load", () => {
 
             music.volume = 0.4;
@@ -67,12 +76,12 @@
 
         });
 
-        // Go to next page
+        // Go to Yes page
         function nextPage() {
             window.location.href = "yes.html";
         }
 
-        // Move the No button
+        // Move the No button randomly
         function moveButton() {
 
             const button = document.getElementById("noButton");
